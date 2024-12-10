@@ -1,0 +1,75 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333333;
+  }
+  
+  /* Container */
+  .dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    padding: 20px;
+  }
+  
+  /* Title */
+  .dashboard-title {
+    font-size: 2.5rem;
+    color: #333333;
+    margin-bottom: 20px;
+  }
+  
+  /* Dashboard Card */
+  .dashboard-card {
+    background-color: #aabd8c; /* Light green */
+    color: #333333; /* Dark gray */
+    border-radius: 10px;
+    padding: 20px 40px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  /* Card Content */
+  .dashboard-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #333333;
+  }
+  
+  .dashboard-card p {
+    font-size: 1.2rem;
+    margin: 5px 0;
+    font-weight: bold;
+  }
+  
+  /* Animation for Numbers */
+  .dashboard-card p strong {
+    color: #ffffff; /* Contrasts against light green */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .dashboard-card {
+      padding: 15px 20px;
+    }
+  
+    .dashboard-title {
+      font-size: 2rem;
+    }
+  
+    .dashboard-card h2 {
+      font-size: 1.5rem;
+    }
+  
+    .dashboard-card p {
+      font-size: 1rem;
+    }
+  }
+  

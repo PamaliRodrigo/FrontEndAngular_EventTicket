@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./ConfigurationForm.css";
 
-const ConfigurationForm = () => {
+const ConfigurationForm = ({ onSubmit }) => {
   const [configuration, setConfiguration] = useState({
     eventName: "",
     totalTickets: 0,
@@ -28,7 +28,7 @@ const ConfigurationForm = () => {
     fetch("http://localhost:8080/api/config/update", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(configuration), // Send the entire configuration object
+      body: JSON.stringify(configuration),
     })
       .then((response) => {
         if (!response.ok) {
@@ -36,7 +36,10 @@ const ConfigurationForm = () => {
         }
         return response.text();
       })
-      .then((data) => setMessage(data))
+      .then((data) => {
+        setMessage(data);
+        onSubmit(configuration); // Call the onSubmit prop after updating
+      })
       .catch((error) =>
         setMessage(`Failed to update configuration: ${error.message}`)
       );
@@ -48,8 +51,8 @@ const ConfigurationForm = () => {
       <form
         className="config-form"
         onSubmit={(e) => {
-          e.preventDefault();
-          updateConfiguration();
+          e.preventDefault(); // Prevent default form submission behavior
+          updateConfiguration(); // Update configuration and call onSubmit
         }}
       >
         <label>
@@ -70,7 +73,8 @@ const ConfigurationForm = () => {
             onChange={(e) =>
               setConfiguration({
                 ...configuration,
-                totalTickets: e.target.value === "" ? 0 : parseInt(e.target.value, 10),
+                totalTickets:
+                  e.target.value === "" ? 0 : parseInt(e.target.value, 10),
               })
             }
           />
@@ -83,7 +87,8 @@ const ConfigurationForm = () => {
             onChange={(e) =>
               setConfiguration({
                 ...configuration,
-                ticketReleaseRate: e.target.value === "" ? 0 : parseInt(e.target.value, 10),
+                ticketReleaseRate:
+                  e.target.value === "" ? 0 : parseInt(e.target.value, 10),
               })
             }
           />
@@ -96,7 +101,8 @@ const ConfigurationForm = () => {
             onChange={(e) =>
               setConfiguration({
                 ...configuration,
-                customerRetrievalRate: e.target.value === "" ? 0 : parseInt(e.target.value, 10),
+                customerRetrievalRate:
+                  e.target.value === "" ? 0 : parseInt(e.target.value, 10),
               })
             }
           />
@@ -109,7 +115,8 @@ const ConfigurationForm = () => {
             onChange={(e) =>
               setConfiguration({
                 ...configuration,
-                maxTicketCapacity: e.target.value === "" ? 0 : parseInt(e.target.value, 10),
+                maxTicketCapacity:
+                  e.target.value === "" ? 0 : parseInt(e.target.value, 10),
               })
             }
           />
@@ -123,7 +130,8 @@ const ConfigurationForm = () => {
             onChange={(e) =>
               setConfiguration({
                 ...configuration,
-                ticketPrice: e.target.value === "" ? 0 : parseFloat(e.target.value),
+                ticketPrice:
+                  e.target.value === "" ? 0 : parseFloat(e.target.value),
               })
             }
           />
