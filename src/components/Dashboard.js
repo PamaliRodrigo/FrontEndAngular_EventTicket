@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./Dashboard.css";
 
 const Dashboard = ({ configuration }) => {
-  // Ensure configuration is valid before accessing properties
   const defaultConfiguration = {
     eventName: "Unknown Event",
     totalTickets: 0,
@@ -14,20 +13,61 @@ const Dashboard = ({ configuration }) => {
 
   const config = configuration || defaultConfiguration;
 
-  const [ticketsAvailable, setTicketsAvailable] = useState(config.totalTickets);
+  const [ticketsAvailable, setTicketsAvailable] = useState(0);
   const [ticketsBought, setTicketsBought] = useState(0);
+  const [isRunning, setIsRunning] = useState(false);
+  const [log, setLog] = useState([]);
 
   useEffect(() => {
-    // Simulate real-time ticket updates
-    const interval = setInterval(() => {
-      if (ticketsAvailable > 0) {
-        setTicketsAvailable((prev) => prev - 1);
-        setTicketsBought((prev) => prev + 1);
-      }
-    }, 1000);
+    const socket = new WebSocket("ws://localhost:8080/updates");
 
-    return () => clearInterval(interval);
-  }, [ticketsAvailable]);
+    socket.onmessage = (event) => {
+      const message = event.data;
+
+      // Update tickets available or tickets sold based on the message
+      if (message.startsWith("Tickets Available:")) {
+        const available = parseInt(message.split(":")[1].trim(), 10);
+        setTicketsAvailable(available);
+      } else if (message.startsWith("Tickets Sold:")) {
+        const sold = parseInt(message.split(":")[1].trim(), 10);
+        setTicketsBought(sold);
+      }
+
+      // Log the message
+      setLog((prevLog) => [message, ...prevLog]);
+    };
+
+    socket.onerror = (error) => {
+      console.error("WebSocket error:", error);
+    };
+
+    socket.onclose = () => {
+      console.log("WebSocket closed");
+    };
+
+    return () => {
+      socket.close();
+    };
+  }, []);
+
+  const handleStart = () => {
+    fetch("http://localhost:8080/start-simulation")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to start simulation");
+        }
+        return response.text();
+      })
+      .then((message) => {
+        setLog((prevLog) => [message, ...prevLog]);
+        setIsRunning(true);
+      })
+      .catch((error) => {
+        setLog((prevLog) => [`Error: ${error.message}`, ...prevLog]);
+      });
+  };
+
+  const handleStop = () => setIsRunning(false);
 
   return (
     <div className="dashboard-container">
@@ -46,6 +86,30 @@ const Dashboard = ({ configuration }) => {
         <p>
           <strong>Ticket Price:</strong> ${config.ticketPrice.toFixed(2)}
         </p>
+      </div>
+      <div className="button-group">
+        <button
+          className={`start-button ${isRunning ? "disabled" : ""}`}
+          onClick={handleStart}
+          disabled={isRunning}
+        >
+          Start
+        </button>
+        <button
+          className={`stop-button ${!isRunning ? "disabled" : ""}`}
+          onClick={handleStop}
+          disabled={!isRunning}
+        >
+          Stop
+        </button>
+      </div>
+      <div className="log-container">
+        <h3>Activity Log</h3>
+        <ul className="log-list">
+          {log.map((entry, index) => (
+            <li key={index}>{entry}</li>
+          ))}
+        </ul>
       </div>
     </div>
   );

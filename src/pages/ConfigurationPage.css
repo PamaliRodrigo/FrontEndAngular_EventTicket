@@ -1,3 +1,11 @@
+
+.roboto-mono-bold {
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
 .configuration-page {
     max-width: 800px;
     margin: auto;

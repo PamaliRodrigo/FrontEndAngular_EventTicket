@@ -1,75 +1,116 @@
-/* General Styles */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333333;
-  }
+.roboto-mono-bold {
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+.dashboard-container {
+  text-align: center;
+  padding: 20px;
+  background-color: #fffffe;
+  color: #3D5467;
+  font-family:"Roboto Mono", monospace;
+}
+
+.dashboard-title {
+  font-size: 2rem;
+  margin-bottom: 50px;
+  color: #3D5467;
+}
+
+.dashboard-card {
+  background-color: #F1EDEE;
+  border: 1px solid #F1EDEE;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 50px auto;
+  width: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-card h2 {
+  color: #2D3142;
+}
+
+.dashboard-card p {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.button-group {
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  margin: 10px;
+  /* cursor: pointer; */
+  transition: transform 0.2s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.start-button {
+  background-color: #4CAF50;
+  color: white;
   
-  /* Container */
-  .dashboard-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f4f4f4;
-    padding: 20px;
-  }
-  
-  /* Title */
-  .dashboard-title {
-    font-size: 2.5rem;
-    color: #333333;
-    margin-bottom: 20px;
-  }
-  
-  /* Dashboard Card */
-  .dashboard-card {
-    background-color: #aabd8c; /* Light green */
-    color: #333333; /* Dark gray */
-    border-radius: 10px;
-    padding: 20px 40px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    max-width: 500px;
-    width: 100%;
-  }
-  
-  /* Card Content */
-  .dashboard-card h2 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-    color: #333333;
-  }
-  
-  .dashboard-card p {
-    font-size: 1.2rem;
-    margin: 5px 0;
-    font-weight: bold;
-  }
-  
-  /* Animation for Numbers */
-  .dashboard-card p strong {
-    color: #ffffff; /* Contrasts against light green */
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .dashboard-card {
-      padding: 15px 20px;
-    }
-  
-    .dashboard-title {
-      font-size: 2rem;
-    }
-  
-    .dashboard-card h2 {
-      font-size: 1.5rem;
-    }
-  
-    .dashboard-card p {
-      font-size: 1rem;
-    }
-  }
-  
+}
+
+.start-button:hover {
+  transform: scale(1.1);
+  background-color: #45a049;
+  cursor: pointer;
+}
+
+.stop-button {
+  background-color: #f44336;
+  color: #f1f1f1;
+
+}
+
+.stop-button:hover {
+  transform: scale(1.1);
+  background-color: #e53935;
+  cursor: pointer;
+}
+
+button.disabled {
+  background-color: #d3d3d3;
+  color: #333333;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.log-container {
+  margin-top: 30px;
+  padding: 10px;
+  background-color: #ffffff;
+  border: 1px solid #c1c1c1;
+  border-radius: 10px;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.log-container h3 {
+  margin-bottom: 10px;
+  color: #050505;
+}
+
+.log-container ul {
+  list-style-type: none;
+  padding: 5px;
+  text-align: center;
+}
+
+.log-container li {
+  font-size: 1rem;
+  padding: 5px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.log-container li:last-child {
+  border-bottom: none;
+}
