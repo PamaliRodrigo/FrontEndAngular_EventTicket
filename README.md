@@ -1,71 +1,51 @@
-# Getting Started with Create React App
+🎟️ Real-Time Event Ticketing System — Frontend
+This is the frontend application for the Real-Time Event Ticketing System coursework project. It was built using React, providing a responsive, dynamic user interface for customers and vendors to interact with the ticketing system in real time.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+🚀 Features
+📋 Event listing with real-time updates
 
-## Available Scripts
+🎫 Ticket purchase and seat selection UI
 
-In the project directory, you can run:
+👤 Customer & vendor interfaces
 
-### `npm start`
+⏱️ Real-time countdowns for ticket sales
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+📱 Fully responsive UI for mobile and desktop
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+🛠️ Tech Stack
+Framework: React
 
-### `npm test`
+Bundler: Vite 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Styling: CSS
 
-### `npm run build`
+State Management: Context API 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Real-time Communication: WebSockets 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+🧑‍💻 Getting Started
+1. Clone the repository
+git clone https://github.com/your-username/real-time-ticketing-frontend.git
+cd real-time-ticketing-frontend
+2. Install dependencies
+npm install
+3. Run the development server
+npm run dev    # For Vite
+4. Build for production
+npm run build
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+🔗 Backend
+This frontend connects to the backend API and ticket pool system developed as part of the coursework. Make sure the backend server is running at the expected URL (e.g., http://localhost:5000) and update the .env file or config accordingly.
 
-### `npm run eject`
+📄 Coursework Specification Summary
+Project: Real-Time Event Ticketing System
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Frontend Role: Customer and vendor interfaces for real-time ticket booking
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Goal: Allow users to view, book, and manage event tickets while interacting with a live ticket pool.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+👩‍💻 Author
+Pamali Rodrigo
+BSc (Hons) Software Engineering
+University Coursework Submission 2024
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-"# FrontEndAngular_EventTicket" 
